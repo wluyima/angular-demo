@@ -1,0 +1,22 @@
+<p>
+  <a routerLink="/edit"><button>Add New Encounter Type</button></a>
+</p>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let encounterType of encounterTypes">
+    <td>{{ encounterType.name }}</td>
+    <td>{{ encounterType.description }}</td>
+    <td>
+      <a routerLink="/edit"><fa-icon [icon]="faEdit"></fa-icon></a>
+      &nbsp;
+      <a (click)="retire(encounterType)" style="cursor: pointer">
+        <fa-icon [icon]="faTrashAlt"></fa-icon>
+      </a>
+    </td>
+  </tr>
+</table>
