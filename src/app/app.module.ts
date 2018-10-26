@@ -8,7 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { EncountertypesComponent } from './encountertypes/encountertypes.component';
-import { EditComponent } from './edit/edit.component';
+import { EditComponent } from './encountertypes/edit/edit.component';
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
 
 @NgModule({

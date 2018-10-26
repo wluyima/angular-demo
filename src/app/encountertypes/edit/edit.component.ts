@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
 import { EncounterType } from '../../model/encountertype';
-import {EncounterTypeService} from "../../services/encountertypes/encountertype.service";
+import { EncounterTypeService } from "../../services/encountertypes/encountertype.service";
 
 @Component({
   selector: 'app-edit',
