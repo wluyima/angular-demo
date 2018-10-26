@@ -1,5 +1,5 @@
 <p>
-  <a routerLink="/edit"><button>Add New Encounter Type</button></a>
+  <a routerLink="/edit/new"><button>Add New Encounter Type</button></a>
 </p>
 
 <table border="1">
@@ -12,7 +12,7 @@
     <td>{{ encounterType.name }}</td>
     <td>{{ encounterType.description }}</td>
     <td>
-      <a routerLink="/edit"><fa-icon [icon]="faEdit"></fa-icon></a>
+      <a routerLink="/edit/{{ encounterType.uuid }}"><fa-icon [icon]="faEdit"></fa-icon></a>
       &nbsp;
       <a (click)="retire(encounterType)" style="cursor: pointer">
         <fa-icon [icon]="faTrashAlt"></fa-icon>

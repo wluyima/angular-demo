@@ -27,12 +27,23 @@ export class EncounterTypeService {
       );
   }
 
-  save(encounterType: EncounterType): Observable<EncounterType> {
+  getEncounterType(uuid: string): Observable<EncounterType>{
     let httpOptions = {
       headers: authHeader
+    };
+    return this.http.get<EncounterType>(BASE_URL+'/'+uuid, httpOptions);
+  }
+
+  save(encounterType: EncounterType): Observable<EncounterType> {
+    let url = BASE_URL;
+    if(encounterType.uuid){
+      url+='/'+encounterType.uuid;
     }
+    let httpOptions = {
+      headers: authHeader
+    };
     
-    return this.http.post<EncounterType>(BASE_URL, encounterType, httpOptions)
+    return this.http.post<EncounterType>(url, encounterType, httpOptions)
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { EncounterType } from '../model/encountertype';
 import {EncounterTypeService} from "../encountertype.service";
 
@@ -16,11 +17,23 @@ export class EditComponent implements OnInit {
   constructor(
     private location: Location,
     private router: Router,
+    private route: ActivatedRoute,
     private service: EncounterTypeService
   ) { }
 
   ngOnInit() {
-    this.encounterType = new EncounterType(); 
+    let uuid = this.route.snapshot.paramMap.get('uuid');
+    if(uuid == 'new'){
+      this.encounterType = new EncounterType();
+    } else{
+      this.getEncounterType(uuid);
+    }
+  }
+
+  getEncounterType(uuid: string) {
+    this.service.getEncounterType(uuid).subscribe(
+      resp => this.encounterType = resp
+    );
   }
 
   save(): void {
