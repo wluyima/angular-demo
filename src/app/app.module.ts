@@ -10,19 +10,27 @@ import { AppComponent } from './app.component';
 import { EncounterTypesComponent } from './encountertypes/encountertypes.component';
 import { EditComponent } from './encountertypes/edit/edit.component';
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialogModule, MatButtonModule } from "@angular/material";
+import { ConfirmDialogComponent } from "./dialogs/confirm-dialog.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     EncounterTypesComponent,
-    EditComponent
+    EditComponent,
+    ConfirmDialogComponent
   ],
+  entryComponents: [ConfirmDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [
     [
