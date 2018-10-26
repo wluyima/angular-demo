@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { EncounterType } from './model/encountertype';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import { Observable} from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const BASE_URL = 'http://localhost:8080/openmrs/ws/rest/v1/encountertype';
-const authHeader = new HttpHeaders({ 'Authorization': 'Basic ' + btoa('admin:Admin123') });
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,6 @@ export class EncounterTypeService {
 
   getEncounterTypes(includeRetired: boolean): Observable<EncounterType[]> {
     let httpOptions = {
-      headers: authHeader,
       params: {'v': 'default'}
     };
     if(includeRetired){
@@ -32,11 +30,7 @@ export class EncounterTypeService {
   }
 
   getEncounterType(uuid: string): Observable<EncounterType>{
-    let httpOptions = {
-      headers: authHeader
-    };
-    
-    return this.http.get<EncounterType>(BASE_URL+'/'+uuid, httpOptions);
+    return this.http.get<EncounterType>(BASE_URL+'/'+uuid);
   }
 
   save(encounterType: EncounterType): Observable<EncounterType> {
@@ -44,11 +38,8 @@ export class EncounterTypeService {
     if(encounterType.uuid){
       url+='/'+encounterType.uuid;
     }
-    let httpOptions = {
-      headers: authHeader
-    };
     
-    return this.http.post<EncounterType>(url, encounterType, httpOptions);
+    return this.http.post<EncounterType>(url, encounterType);
   }
 
   delete(encounterType: EncounterType) {
@@ -57,7 +48,6 @@ export class EncounterTypeService {
       url+='/'+encounterType.uuid;
     }
     let httpOptions = {
-      headers: authHeader, 
       params: {'purge': 'true'}
     };
 
