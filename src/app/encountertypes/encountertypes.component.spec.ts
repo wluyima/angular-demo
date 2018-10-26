@@ -4,6 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { RouterTestingModule } from "@angular/router/testing";
+import { MatDialogModule } from "@angular/material";
 
 describe('EncounterTypesComponent', () => {
   let component: EncounterTypesComponent;
@@ -11,7 +12,13 @@ describe('EncounterTypesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, FontAwesomeModule, RouterTestingModule, HttpClientModule ],
+      imports: [
+        FormsModule,
+        FontAwesomeModule,
+        RouterTestingModule,
+        HttpClientModule,
+        MatDialogModule
+      ],
       declarations: [ EncounterTypesComponent ]
     })
     .compileComponents();
