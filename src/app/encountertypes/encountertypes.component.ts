@@ -10,6 +10,7 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 })
 export class EncountertypesComponent implements OnInit {
 
+  title = 'Encounter Types';
   encounterTypes: EncounterType[];
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;

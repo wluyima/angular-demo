@@ -12,7 +12,12 @@ import {EncounterTypeService} from "../encountertype.service";
 })
 export class EditComponent implements OnInit {
 
-  encounterType: EncounterType
+  encounterType: EncounterType;
+
+  titles = {
+    add: 'New Encounter Type Form',
+    edit: 'Edit Encounter Type Form'
+  };
 
   constructor(
     private location: Location,

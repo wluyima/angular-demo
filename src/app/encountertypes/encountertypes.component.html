@@ -1,3 +1,4 @@
+<h1>{{ title }}</h1>
 <p>
   <a routerLink="/edit/new"><button>Add New Encounter Type</button></a>
 </p>
@@ -9,7 +10,7 @@
     <th>Action</th>
   </tr>
   <tr *ngFor="let encounterType of encounterTypes">
-    <td>{{ encounterType.name }}</td>
+    <td [class.retired]="encounterType.retired">{{ encounterType.name }}</td>
     <td>{{ encounterType.description }}</td>
     <td>
       <a routerLink="/edit/{{ encounterType.uuid }}" title="Edit">

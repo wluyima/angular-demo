@@ -1,10 +1,12 @@
+<h1>{{ (encounterType && encounterType.uuid) ? titles.edit : titles.add }}</h1>
+
 <div *ngIf="encounterType">
   <form #encounterForm="ngForm">
   <p>
     <input [(ngModel)]="encounterType.name" name="name" placeholder="Name"
            size="40" required #name="ngModel" />
   </p>
-  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="errors">
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="field-errors">
     <div *ngIf="name.errors.required">
       Name is required
     </div>
@@ -14,7 +16,7 @@
               cols="80" rows="3" required #description="ngModel">
     </textarea>
   </p>
-  <div *ngIf="description.invalid && (description.dirty || description.touched)" class="errors">
+  <div *ngIf="description.invalid && (description.dirty || description.touched)" class="field-errors">
     <div *ngIf="description.errors.required">
       Description is required
     </div>
