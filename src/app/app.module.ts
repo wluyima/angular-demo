@@ -7,14 +7,14 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
-import { EncountertypesComponent } from './encountertypes/encountertypes.component';
+import { EncounterTypesComponent } from './encountertypes/encountertypes.component';
 import { EditComponent } from './encountertypes/edit/edit.component';
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
-    EncountertypesComponent,
+    EncounterTypesComponent,
     EditComponent
   ],
   imports: [

@@ -9,7 +9,7 @@ import { faTimes, faUndo, faPen } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './encountertypes.component.html',
   styleUrls: ['./encountertypes.component.css']
 })
-export class EncountertypesComponent implements OnInit {
+export class EncounterTypesComponent implements OnInit {
 
   title = 'Encounter Types';
   encounterTypes: EncounterType[];
