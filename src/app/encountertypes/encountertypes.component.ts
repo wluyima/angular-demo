@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EncounterTypeService } from '../encountertype.service';
+import { EncounterTypeService } from '../services/encountertype.service';
 import { EncounterType } from '../model/encountertype';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faTimes, faUndo, faPen } from '@fortawesome/free-solid-svg-icons';
