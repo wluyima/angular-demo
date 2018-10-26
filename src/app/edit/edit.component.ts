@@ -41,7 +41,7 @@ export class EditComponent implements OnInit {
     );
   }
 
-  save(): void {
+  save() {
     this.service.save(this.encounterType).subscribe(
       res => this.router.navigateByUrl('list'),
       error => {

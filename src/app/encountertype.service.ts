@@ -16,11 +16,15 @@ export class EncounterTypeService {
     private http: HttpClient
   ) { }
 
-  getEncounterTypes(): Observable<EncounterType[]> {
+  getEncounterTypes(includeRetired: boolean): Observable<EncounterType[]> {
     let httpOptions = {
       headers: authHeader,
       params: {'v': 'default'}
+    };
+    if(includeRetired){
+      httpOptions.params['includeAll'] = includeRetired;
     }
+    
     return this.http.get<EncounterType[]>(BASE_URL, httpOptions)
       .pipe(
         map(response => response['results'])
@@ -31,6 +35,7 @@ export class EncounterTypeService {
     let httpOptions = {
       headers: authHeader
     };
+    
     return this.http.get<EncounterType>(BASE_URL+'/'+uuid, httpOptions);
   }
 
@@ -43,7 +48,20 @@ export class EncounterTypeService {
       headers: authHeader
     };
     
-    return this.http.post<EncounterType>(url, encounterType, httpOptions)
+    return this.http.post<EncounterType>(url, encounterType, httpOptions);
+  }
+
+  delete(encounterType: EncounterType) {
+    let url = BASE_URL;
+    if(encounterType.uuid){
+      url+='/'+encounterType.uuid;
+    }
+    let httpOptions = {
+      headers: authHeader, 
+      params: {'purge': 'true'}
+    };
+
+    return this.http.delete<EncounterType>(url, httpOptions);
   }
 
 }

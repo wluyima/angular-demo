@@ -1,6 +1,8 @@
 <h1>{{ title }}</h1>
 <p>
   <a routerLink="/edit/new"><button>Add New Encounter Type</button></a>
+  &nbsp;&nbsp;
+  <input type="checkbox" [(ngModel)]="includeRetired" (change)="loadEncounterTypes()" />&nbsp;Include Retired
 </p>
 
 <table border="1" cellpadding="3">
@@ -11,15 +13,22 @@
   </tr>
   <tr *ngFor="let encounterType of encounterTypes">
     <td [class.retired]="encounterType.retired">{{ encounterType.name }}</td>
-    <td>{{ encounterType.description }}</td>
+    <td [ngClass]="{ retired : encounterType.retired }">{{ encounterType.description }}</td>
     <td>
       <a routerLink="/edit/{{ encounterType.uuid }}" title="Edit">
         <fa-icon [icon]="faEdit"></fa-icon>
       </a>
       &nbsp;
-      <a (click)="retire(encounterType)" class="link" title="Delete">
-        <fa-icon [icon]="faTrashAlt"></fa-icon>
+      <a (click)="encounterType.retired ? restore(encounterType) : retire(encounterType)"
+         class="link" title="{{ encounterType.retired ? 'Restore' : 'Retire' }}">
+        <fa-icon [icon]="encounterType.retired ? faUndo : faTimes"></fa-icon>
       </a>
+      &nbsp;
+      <span class="float-right">
+        <a (click)="delete(encounterType)" class="link" title="Delete">
+          <fa-icon [icon]="faTrashAlt"></fa-icon>
+        </a>
+      </span>
     </td>
   </tr>
 </table>
