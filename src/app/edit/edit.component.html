@@ -1,14 +1,28 @@
 <div *ngIf="encounterType">
+  <form #encounterForm="ngForm">
   <p>
-    <input [(ngModel)]="encounterType.name" placeholder="Name" size="40" />
+    <input [(ngModel)]="encounterType.name" name="name" placeholder="Name"
+           size="40" required #name="ngModel" />
   </p>
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="errors">
+    <div *ngIf="name.errors.required">
+      Name is required
+    </div>
+  </div>
   <p>
-    <textarea [(ngModel)]="encounterType.description" placeholder="Description" cols="80" rows="3">
+    <textarea [(ngModel)]="encounterType.description" name="description" placeholder="Description"
+              cols="80" rows="3" required #description="ngModel">
     </textarea>
   </p>
+  <div *ngIf="description.invalid && (description.dirty || description.touched)" class="errors">
+    <div *ngIf="description.errors.required">
+      Description is required
+    </div>
+  </div>
   <p>
-    <button (click)="save()">Save</button>
+    <button (click)="save()" [disabled]="encounterForm.invalid">Save</button>
     &nbsp;&nbsp;
     <button (click)="cancel()">Cancel</button>
   </p>
+  </form>
 </div>
