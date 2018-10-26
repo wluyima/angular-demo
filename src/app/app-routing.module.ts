@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EncountertypesComponent } from './encountertypes/encountertypes.component';
-import { EditComponent } from './encountertypesn/edit/edit.component';
+import { EditComponent } from './encountertypes/edit/edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/list', pathMatch: 'full' },
