@@ -3,8 +3,11 @@
   <a routerLink="/edit/new"><button>Add New Encounter Type</button></a>
   &nbsp;&nbsp;
   <input type="checkbox" [(ngModel)]="includeRetired" (change)="loadEncounterTypes()" />&nbsp;Include Retired
+  &nbsp;
+  <span [hidden]="!includeRetired">
+    <i>(*Strike through indicates retired)</i>
+  </span>
 </p>
-
 <table border="1" cellpadding="3">
   <tr>
     <th>Name</th>
