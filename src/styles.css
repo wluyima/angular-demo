@@ -11,3 +11,7 @@
 .float-right {
   float: right
 }
+
+.material-datatable tr th, .material-datatable tr td {
+  padding: 5px;
+}

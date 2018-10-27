@@ -13,6 +13,7 @@ import { AuthInterceptor } from "./interceptors/auth.interceptor";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule, MatButtonModule } from "@angular/material";
 import { ConfirmDialogComponent } from "./dialogs/confirm-dialog.component";
+import { MatTableModule } from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ConfirmDialogComponent } from "./dialogs/confirm-dialog.component";
     FontAwesomeModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [
     [

@@ -11,16 +11,25 @@
     <i>(*Strike through indicates retired)</i>
   </span>
 </p>
-<table border="1" cellpadding="3">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Action</th>
-  </tr>
-  <tr *ngFor="let encounterType of encounterTypes">
-    <td [class.retired]="encounterType.retired">{{ encounterType.name }}</td>
-    <td [ngClass]="{ retired : encounterType.retired }">{{ encounterType.description }}</td>
-    <td>
+
+<table class="material-datatable" mat-table [dataSource]="encounterTypes">
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let encounterType; columns: columnsToDisplay"></tr>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let encounterType" [class.retired]="encounterType.retired">
+      {{ encounterType.name }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let encounterType" [ngClass]="{ retired : encounterType.retired }">
+      {{ encounterType.description }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let encounterType">
       <a routerLink="/edit/{{ encounterType.uuid }}" title="Edit">
         <fa-icon [icon]="faEdit"></fa-icon>
       </a>
@@ -36,5 +45,5 @@
         </a>
       </span>
     </td>
-  </tr>
+  </ng-container>
 </table>

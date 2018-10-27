@@ -20,6 +20,7 @@ export class EncounterTypesComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faTimes = faTimes;
   faUndo = faUndo;
+  columnsToDisplay = ['name', 'description', 'action'];
 
   constructor(
     private service: EncounterTypeService,

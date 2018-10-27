@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EncounterType } from '../../model/encountertype';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 const BASE_URL = 'http://localhost:8080/openmrs/ws/rest/v1/encountertype';
@@ -34,11 +34,14 @@ export class EncounterTypeService {
   }
 
   search(phrase: string): Observable<EncounterType[]> {
-    if(!phrase.trim()){
-      return of([])
+    let httpOptions = {
+      params: {'v': 'default'}
+    };
+    if(phrase.trim()){
+      httpOptions.params['q'] = phrase;
     }
     
-    return this.http.get<EncounterType[]>(BASE_URL, {params: {'v': 'default', 'q': phrase}})
+    return this.http.get<EncounterType[]>(BASE_URL, httpOptions)
       .pipe(
         map(response => response['results'])
       );
