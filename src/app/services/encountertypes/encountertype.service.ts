@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EncounterType } from '../../model/encountertype';
-import {HttpClient} from '@angular/common/http';
-import { Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 const BASE_URL = 'http://localhost:8080/openmrs/ws/rest/v1/encountertype';
@@ -29,8 +29,19 @@ export class EncounterTypeService {
       );
   }
 
-  getEncounterType(uuid: string): Observable<EncounterType>{
+  getEncounterType(uuid: string): Observable<EncounterType> {
     return this.http.get<EncounterType>(BASE_URL+'/'+uuid);
+  }
+
+  search(phrase: string): Observable<EncounterType[]> {
+    if(!phrase.trim()){
+      return of([])
+    }
+    
+    return this.http.get<EncounterType[]>(BASE_URL, {params: {'v': 'default', 'q': phrase}})
+      .pipe(
+        map(response => response['results'])
+      );
   }
 
   save(encounterType: EncounterType): Observable<EncounterType> {
@@ -47,11 +58,8 @@ export class EncounterTypeService {
     if(encounterType.uuid){
       url+='/'+encounterType.uuid;
     }
-    let httpOptions = {
-      params: {'purge': 'true'}
-    };
 
-    return this.http.delete<EncounterType>(url, httpOptions);
+    return this.http.delete<EncounterType>(url, {params: {'purge': 'true'}});
   }
 
 }

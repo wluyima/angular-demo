@@ -58,6 +58,11 @@ export class EncounterTypesComponent implements OnInit {
       .subscribe(encTypes => this.encounterTypes = encTypes);
   }
 
+  search(phrase: string){
+     this.service.search(phrase)
+      .subscribe(encTypes => this.encounterTypes = encTypes);
+  }
+
   retire(encounterType: EncounterType){
      encounterType.retired = true;
      this.service.save(encounterType).subscribe(
