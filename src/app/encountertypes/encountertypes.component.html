@@ -4,7 +4,7 @@
   &nbsp;&nbsp;
   <input type="checkbox" [(ngModel)]="includeRetired" (change)="loadEncounterTypes()" />&nbsp;Include Retired
   &nbsp;
-  <span [hidden]="!includeRetired">
+  <span *ngIf="includeRetired">
     <i>(*Strike through indicates retired)</i>
   </span>
 </p>
