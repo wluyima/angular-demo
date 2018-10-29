@@ -13,7 +13,7 @@ import { ConfirmDialogComponent } from "../dialogs/confirm-dialog.component";
 })
 export class EncounterTypesComponent implements OnInit {
 
-  title = 'Encounter Types';
+  title = 'Encounter Types List';
   encounterTypes: EncounterType[];
   includeRetired = false;
   faEdit = faPen;

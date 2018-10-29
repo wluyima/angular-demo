@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,6 +13,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule, MatButtonModule } from "@angular/material";
 import { ConfirmDialogComponent } from "./dialogs/confirm-dialog.component";
 import { MatTableModule } from "@angular/material";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { MatTableModule } from "@angular/material";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    SharedModule,
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
