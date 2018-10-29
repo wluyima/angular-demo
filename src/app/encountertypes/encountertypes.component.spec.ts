@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { EncounterTypesComponent } from './encountertypes.component';
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { RouterTestingModule } from "@angular/router/testing";
-import { MatDialogModule } from "@angular/material";
+import { MatDialogModule, MatTableModule } from "@angular/material";
+import { SharedModule } from "../shared/shared.module";
 
 describe('EncounterTypesComponent', () => {
   let component: EncounterTypesComponent;
@@ -13,11 +13,12 @@ describe('EncounterTypesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule,
+        SharedModule,
         FontAwesomeModule,
         RouterTestingModule,
         HttpClientModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTableModule
       ],
       declarations: [ EncounterTypesComponent ]
     })
