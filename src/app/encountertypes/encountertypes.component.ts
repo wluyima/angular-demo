@@ -3,9 +3,9 @@ import { EncounterTypeService } from '../services/encountertypes/encountertype.s
 import { EncounterType } from '../model/encountertype';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faTimes, faUndo, faPen } from '@fortawesome/free-solid-svg-icons';
-import { MatDialog, MatDialogConfig } from "@angular/material";
-import { ConfirmDialogComponent } from "../dialogs/confirm-dialog.component";
-import { Store, select } from "@ngrx/store";
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { ConfirmDialogComponent } from '../dialogs/confirm-dialog.component';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-encountertypes',
@@ -53,48 +53,48 @@ export class EncounterTypesComponent implements OnInit {
     };
 
 
-    let dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
       result => {
-        if(result === 'true'){
+        if (result === 'true') {
           this.delete(encounterType);
         }
       }
     );
   }
 
-  loadEncounterTypes(){
+  loadEncounterTypes() {
     this.service.getEncounterTypes(this.includeRetired)
       .subscribe(encTypes => this.encounterTypes = encTypes);
   }
 
-  search(phrase: string){
+  search(phrase: string) {
      this.service.search(phrase)
       .subscribe(encTypes => this.encounterTypes = encTypes);
   }
 
-  retire(encounterType: EncounterType){
+  retire(encounterType: EncounterType) {
      encounterType.retired = true;
      this.service.save(encounterType).subscribe(
        response => this.loadEncounterTypes()
      );
   }
 
-  restore(encounterType: EncounterType){
+  restore(encounterType: EncounterType) {
     encounterType.retired = false;
     this.service.save(encounterType).subscribe(
       response => this.loadEncounterTypes()
     );
   }
 
-  delete(encounterType: EncounterType){
+  delete(encounterType: EncounterType) {
     this.service.delete(encounterType).subscribe(
       _ => this.loadEncounterTypes()
     );
   }
 
-  toggleIncludeRetired(value){
+  toggleIncludeRetired(value) {
     this.store.dispatch({
       type: 'TOGGLE_INCLUDE_RETIRED',
       payload: value
