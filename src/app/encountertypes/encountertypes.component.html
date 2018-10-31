@@ -6,7 +6,8 @@
 <p>
   Search: <input #searchInput placeholder="Enter Name" (keyup)="search(searchInput.value)" />
   &nbsp;&nbsp;&nbsp;
-  <input type="checkbox" [(ngModel)]="includeRetired" (change)="loadEncounterTypes()" />&nbsp;Include Retired
+  <input type="checkbox" (change)="toggleIncludeRetired($event.target.checked)"
+         [checked]="includeRetired" />&nbsp;Include Retired
   &nbsp;
   <span *ngIf="includeRetired">
     <i>(*Strike through indicates retired)</i>

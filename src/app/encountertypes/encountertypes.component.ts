@@ -5,6 +5,7 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faTimes, faUndo, faPen } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { ConfirmDialogComponent } from "../dialogs/confirm-dialog.component";
+import { Store, select } from "@ngrx/store";
 
 @Component({
   selector: 'app-encountertypes',
@@ -24,11 +25,20 @@ export class EncounterTypesComponent implements OnInit {
 
   constructor(
     private service: EncounterTypeService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private store: Store<any>
   ) { }
 
   ngOnInit() {
-    this.loadEncounterTypes();
+    this.store.pipe(select('app'))
+      .subscribe(
+        app => {
+          if(app) {
+            this.includeRetired = app.includeRetired;
+          }
+          this.loadEncounterTypes();
+        }
+    );
   }
 
   confirmDialog(encounterType: EncounterType) {
@@ -82,6 +92,13 @@ export class EncounterTypesComponent implements OnInit {
     this.service.delete(encounterType).subscribe(
       _ => this.loadEncounterTypes()
     );
+  }
+
+  toggleIncludeRetired(value){
+    this.store.dispatch({
+      type: 'TOGGLE_INCLUDE_RETIRED',
+      payload: value
+    });
   }
 
 }

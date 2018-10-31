@@ -14,6 +14,10 @@ import { MatDialogModule, MatButtonModule } from "@angular/material";
 import { ConfirmDialogComponent } from "./dialogs/confirm-dialog.component";
 import { MatTableModule } from "@angular/material";
 import { SharedModule } from "./shared/shared.module";
+import { StoreModule } from "@ngrx/store";
+import { reducer} from "./state/app.reducer";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -32,7 +36,13 @@ import { SharedModule } from "./shared/shared.module";
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    StoreModule.forRoot({'app': reducer}),
+    StoreDevtoolsModule.instrument({
+      name: 'Encounter Types App',
+      maxAge: 15,
+      logOnly: environment.production
+    })
   ],
   providers: [
     [
