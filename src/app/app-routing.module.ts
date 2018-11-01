@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EncounterTypesComponent } from './encountertypes/encountertypes.component';
 import { EditComponent } from './encountertypes/edit/edit.component';
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/list', pathMatch: 'full' },
-  { path: 'list', component: EncounterTypesComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full',  },
+  { path: 'home', component: HomeComponent },
+  { path: 'encounters', component: EncounterTypesComponent },
   { path: 'edit/:uuid', component: EditComponent }
 ];
 

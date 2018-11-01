@@ -18,13 +18,15 @@ import { StoreModule } from '@ngrx/store';
 import { reducer} from './state/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EncounterTypesComponent,
     EditComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    HomeComponent
   ],
   entryComponents: [ConfirmDialogComponent],
   imports: [

@@ -8,7 +8,6 @@ import { ConfirmDialogComponent } from '../dialogs/confirm-dialog.component';
 import { Store, select } from '@ngrx/store';
 
 @Component({
-  selector: 'app-encountertypes',
   templateUrl: './encountertypes.component.html',
   styleUrls: ['./encountertypes.component.css']
 })
