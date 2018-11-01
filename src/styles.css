@@ -8,6 +8,10 @@ body {
   color: #424242;
 }
 
+.container {
+  margin: 10px;
+}
+
 .field-errors {
   color: #ff0000;
 }
