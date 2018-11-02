@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router } from "@angular/router";
-import { ActivatedRoute } from "@angular/router";
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { EncounterType } from './encounter-type';
-import { EncounterTypeService } from "./encounter-type.service";
+import { EncounterTypeService } from './encounter-type.service';
 
 @Component({
   templateUrl: './edit.component.html',
