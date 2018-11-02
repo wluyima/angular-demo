@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EncounterType } from '../../model/encountertype';
+import { EncounterType } from './encounter-type';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

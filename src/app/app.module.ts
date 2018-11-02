@@ -6,8 +6,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
-import { EncounterTypesComponent } from './encountertypes/encountertypes.component';
-import { EditComponent } from './encountertypes/edit/edit.component';
+import { EncounterTypesComponent } from './encounter-types/encounter-types.component';
+import { EditComponent } from './encounter-types/edit.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MatButtonModule } from '@angular/material';

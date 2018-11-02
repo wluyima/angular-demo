@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EncounterTypeService } from '../services/encountertypes/encountertype.service';
-import { EncounterType } from '../model/encountertype';
+import { EncounterTypeService } from './encounter-type.service';
+import { EncounterType } from './encounter-type';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faTimes, faUndo, faPen } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogConfig } from '@angular/material';
@@ -8,8 +8,8 @@ import { ConfirmDialogComponent } from '../dialogs/confirm-dialog.component';
 import { Store, select } from '@ngrx/store';
 
 @Component({
-  templateUrl: './encountertypes.component.html',
-  styleUrls: ['./encountertypes.component.css']
+  templateUrl: './encounter-types.component.html',
+  styleUrls: ['./encounter-types.component.css']
 })
 export class EncounterTypesComponent implements OnInit {
 

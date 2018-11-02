@@ -1,10 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { EncounterTypesComponent } from './encountertypes.component';
-import { HttpClientModule } from "@angular/common/http";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { RouterTestingModule } from "@angular/router/testing";
-import { MatDialogModule, MatTableModule } from "@angular/material";
-import { SharedModule } from "../shared/shared.module";
+import { EncounterTypesComponent } from './encounter-types.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatDialogModule, MatTableModule } from '@angular/material';
+import { SharedModule } from '../shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import {reducer} from "../state/app.reducer";
 
 describe('EncounterTypesComponent', () => {
   let component: EncounterTypesComponent;
@@ -18,7 +20,8 @@ describe('EncounterTypesComponent', () => {
         RouterTestingModule,
         HttpClientModule,
         MatDialogModule,
-        MatTableModule
+        MatTableModule,
+        StoreModule.forRoot({})
       ],
       declarations: [ EncounterTypesComponent ]
     })

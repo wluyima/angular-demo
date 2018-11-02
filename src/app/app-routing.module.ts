@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EncounterTypesComponent } from './encountertypes/encountertypes.component';
-import { EditComponent } from './encountertypes/edit/edit.component';
+import { EncounterTypesComponent } from './encounter-types/encounter-types.component';
+import { EditComponent } from './encounter-types/edit.component';
 import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [

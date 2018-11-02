@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { EncounterTypeService } from './encountertype.service';
+import { EncounterTypeService } from './encounter-type.service';
 import { HttpClientModule } from "@angular/common/http";
 
 describe('EncounterTypeService', () => {
