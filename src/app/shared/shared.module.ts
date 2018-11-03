@@ -8,25 +8,21 @@ import { AppRoutingModule} from '../app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatDialogModule, MatTableModule } from '@angular/material';
-import { HomeComponent } from "../home/home.component";
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [HeaderComponent, HomeComponent],
+  declarations: [HeaderComponent],
   exports: [
-    FormsModule,
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
     MatTableModule,
     FontAwesomeModule,
-    HeaderComponent,
-    HomeComponent
+    HeaderComponent
   ]
 })
 export class SharedModule { }

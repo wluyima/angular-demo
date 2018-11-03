@@ -10,11 +10,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EncounterTypesModule } from './encounter-types/encounter-types.module';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from "./home/home.component";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, HomeComponent
   ],
   entryComponents: [ConfirmDialogComponent],
   imports: [
