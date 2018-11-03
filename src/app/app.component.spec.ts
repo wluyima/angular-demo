@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { EncounterTypesModule } from './encounter-types/encounter-types.module';
+import { HomeComponent } from './home/home.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -11,7 +12,7 @@ describe('AppComponent', () => {
         SharedModule, RouterTestingModule, EncounterTypesModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, HomeComponent
       ]
     }).compileComponents();
   }));

@@ -42,7 +42,7 @@ export class EditComponent implements OnInit {
 
   save() {
     this.service.save(this.encounterType).subscribe(
-      res => this.router.navigateByUrl('list'),
+      res => this.router.navigateByUrl('encounters'),
       error => {
         //TODO use a dialog
         alert('An error occurred: '+error.statusText)

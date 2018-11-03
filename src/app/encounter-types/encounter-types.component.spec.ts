@@ -3,7 +3,7 @@ import { EncounterTypesComponent } from './encounter-types.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '../shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { EditComponent } from "./edit.component";
+import { AppModule } from "../app.module";
 
 describe('EncounterTypesComponent', () => {
   let component: EncounterTypesComponent;
@@ -12,11 +12,11 @@ describe('EncounterTypesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        AppModule,
         SharedModule,
         RouterTestingModule,
         StoreModule.forRoot({})
-      ],
-      declarations: [ EncounterTypesComponent, EditComponent ]
+      ]
     })
     .compileComponents();
   }));
