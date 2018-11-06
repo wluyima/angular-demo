@@ -6,6 +6,7 @@ import { faTimes, faUndo, faPen } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog.component';
 import { Store, select } from '@ngrx/store';
+import * as encTypeActions from '../state/encounter-types.actions';
 
 @Component({
   templateUrl: './encounter-types.component.html',
@@ -93,11 +94,8 @@ export class EncounterTypesComponent implements OnInit {
     );
   }
 
-  toggleIncludeRetired(value) {
-    this.store.dispatch({
-      type: 'TOGGLE_INCLUDE_RETIRED',
-      payload: value
-    });
+  toggleIncludeRetired(value: boolean) {
+    this.store.dispatch(new encTypeActions.ToggleRetired(value));
   }
 
 }

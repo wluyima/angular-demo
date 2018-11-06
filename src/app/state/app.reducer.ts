@@ -1,7 +1,9 @@
-export function reducer(state, action) {
+import { EncounterTypeActions, EncounterTypeActionType} from './encounter-types.actions';
+
+export function reducer(state, action: EncounterTypeActions) {
 
   switch (action.type) {
-    case 'TOGGLE_INCLUDE_RETIRED':
+    case EncounterTypeActionType.ToggleRetired:
       return {
         ...state,
         includeRetired: action.payload
