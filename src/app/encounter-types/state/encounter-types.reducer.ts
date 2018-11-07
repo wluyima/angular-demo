@@ -2,7 +2,7 @@ import { EncounterTypeActions, EncounterTypeActionType } from './encounter-types
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { EncounterType } from '../encounter-type';
 
-export class EncounterTypeState {
+export interface EncounterTypeState {
   includeRetired: boolean;
   encTypes: EncounterType[]
 }
@@ -19,7 +19,8 @@ export const getEncTypes = createSelector(
   state => state.encTypes
 );
 
-const initialState = {
+const initialState: EncounterTypeState = {
+  includeRetired: null,
   encTypes: []
 };
 
