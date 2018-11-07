@@ -5,7 +5,7 @@ import { map, switchMap, withLatestFrom } from "rxjs/operators";
 import * as encTypeActions from './encounter-types.actions';
 import * as fromEncTypes from './encounter-types.reducer';
 import { EncounterTypeActionType } from './encounter-types.actions';
-import { Store } from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import { State } from '../../state/app.state';
 
 @Injectable()
@@ -20,10 +20,13 @@ export class EncounterTypeEffects {
   @Effect()
   loadEncounterTypes$ = this.actions$.pipe(
     ofType(EncounterTypeActionType.Load),
-    withLatestFrom(this.store$.select(fromEncTypes.getIncludeRetired)),
-    switchMap(([action, includeRetired]) => this.service.getEncounterTypes(includeRetired).pipe(
-      map(encounterTypes => new encTypeActions.LoadSuccess(encounterTypes))
-    ))
+    withLatestFrom(this.store$.pipe(select(fromEncTypes.getIncludeRetired))),
+    switchMap(
+      ([action, includeRetired]) =>
+        this.service.getEncounterTypes(includeRetired).pipe(
+        map(encounterTypes => new encTypeActions.LoadSuccess(encounterTypes))
+      )
+    )
   );
 
 }
