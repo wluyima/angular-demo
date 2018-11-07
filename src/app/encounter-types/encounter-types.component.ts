@@ -8,6 +8,7 @@ import { ConfirmDialogComponent } from '../dialogs/confirm-dialog.component';
 import { Store, select } from '@ngrx/store';
 import * as encTypeActions from './state/encounter-types.actions';
 import * as fromEncTypes from './state/encounter-types.reducer';
+import { State } from '../state/app.state';
 
 @Component({
   templateUrl: './encounter-types.component.html',
@@ -27,7 +28,7 @@ export class EncounterTypesComponent implements OnInit {
   constructor(
     private service: EncounterTypeService,
     private dialog: MatDialog,
-    private store: Store<any>
+    private store: Store<State>
   ) { }
 
   ngOnInit() {

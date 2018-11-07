@@ -7,7 +7,7 @@ export class EncounterTypeState {
   encTypes: EncounterType[]
 }
 
-const getEncounterTypesFeatureState = createFeatureSelector<any>('encounterTypes');
+const getEncounterTypesFeatureState = createFeatureSelector<EncounterTypeState>('encounterTypes');
 
 export const getIncludeRetired = createSelector(
   getEncounterTypesFeatureState,
