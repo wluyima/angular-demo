@@ -6,6 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './state/encounter-types.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { EncounterTypeEffects } from './state/encounter-types.effects';
 
 const routes: Routes = [
   { path: 'edit/:uuid', component: EditComponent }
@@ -15,7 +17,8 @@ const routes: Routes = [
   imports: [
     SharedModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature('encounterTypes', reducer)
+    StoreModule.forFeature('encounterTypes', reducer),
+    EffectsModule.forFeature([EncounterTypeEffects])
   ],
   declarations: [
     EncounterTypesComponent,

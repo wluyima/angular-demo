@@ -9,7 +9,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EncounterTypesModule } from './encounter-types/encounter-types.module';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from "./home/home.component";
+import { HomeComponent } from './home/home.component';
+import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HomeComponent } from "./home/home.component";
   imports: [
     SharedModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       name: 'Metadata App',
       maxAge: 15,

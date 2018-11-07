@@ -34,7 +34,7 @@ export function reducer(state = initialState, action: EncounterTypeActions) {
         includeRetired: action.payload
       };
 
-    case EncounterTypeActionType.Load:
+    case EncounterTypeActionType.LoadSuccess:
       return {
         ...state,
         encTypes: action.payload

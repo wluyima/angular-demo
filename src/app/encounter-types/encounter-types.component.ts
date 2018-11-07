@@ -42,10 +42,7 @@ export class EncounterTypesComponent implements OnInit {
     );
 
     this.store.pipe(select(fromEncTypes.getEncTypes)).subscribe(
-      encounterTypes => {
-          this.encounterTypes = encounterTypes;
-        }
-      );
+      encounterTypes => this.encounterTypes = encounterTypes);
 
     this.loadEncounterTypes();
   }
@@ -74,8 +71,7 @@ export class EncounterTypesComponent implements OnInit {
   }
 
   loadEncounterTypes() {
-    this.service.getEncounterTypes(this.includeRetired)
-      .subscribe(encTypes => this.store.dispatch(new encTypeActions.Load(encTypes)));
+    this.store.dispatch(new encTypeActions.Load());
   }
 
   search(phrase: string) {
@@ -86,20 +82,20 @@ export class EncounterTypesComponent implements OnInit {
   retire(encounterType: EncounterType) {
      encounterType.retired = true;
      this.service.save(encounterType).subscribe(
-       response => this.loadEncounterTypes()
+       () => this.loadEncounterTypes()
      );
   }
 
   restore(encounterType: EncounterType) {
     encounterType.retired = false;
     this.service.save(encounterType).subscribe(
-      response => this.loadEncounterTypes()
+      () => this.loadEncounterTypes()
     );
   }
 
   delete(encounterType: EncounterType) {
     this.service.delete(encounterType).subscribe(
-      response => this.loadEncounterTypes()
+      () => this.loadEncounterTypes()
     );
   }
 
