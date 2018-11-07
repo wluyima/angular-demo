@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog.component';
 import { StoreModule } from '@ngrx/store';
-import { reducer} from './state/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EncounterTypesModule } from './encounter-types/encounter-types.module';
@@ -20,7 +19,7 @@ import { HomeComponent } from "./home/home.component";
   entryComponents: [ConfirmDialogComponent],
   imports: [
     SharedModule,
-    StoreModule.forRoot({'app': reducer}),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       name: 'Metadata App',
       maxAge: 15,

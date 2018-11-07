@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { EncounterType } from '../encounter-type';
 
 export enum EncounterTypeActionType {
   ToggleRetired = 'TOGGLE_INCLUDE_RETIRED',
@@ -10,11 +11,13 @@ export class ToggleRetired implements Action {
 
   constructor(public payload: boolean){
   }
-  
 }
 
 export class Load implements Action {
   readonly type = EncounterTypeActionType.Load;
+
+  constructor(public payload: EncounterType[]){
+  }
 }
 
 export type EncounterTypeActions = ToggleRetired | Load;

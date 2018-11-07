@@ -4,6 +4,8 @@ import { EditComponent } from './edit.component';
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './state/encounter-types.reducer';
 
 const routes: Routes = [
   { path: 'edit/:uuid', component: EditComponent }
@@ -11,7 +13,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    SharedModule, RouterModule.forChild(routes)
+    SharedModule,
+    RouterModule.forChild(routes),
+    StoreModule.forFeature('encounterTypes', reducer)
   ],
   declarations: [
     EncounterTypesComponent,

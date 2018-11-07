@@ -6,7 +6,8 @@ import { faTimes, faUndo, faPen } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog.component';
 import { Store, select } from '@ngrx/store';
-import * as encTypeActions from '../state/encounter-types.actions';
+import * as encTypeActions from './state/encounter-types.actions';
+import * as fromEncTypes from './state/encounter-types.reducer';
 
 @Component({
   templateUrl: './encounter-types.component.html',
@@ -30,15 +31,24 @@ export class EncounterTypesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.store.pipe(select('app'))
-      .subscribe(
-        app => {
-          if(app) {
-            this.includeRetired = app.includeRetired;
+    this.store.pipe(select(fromEncTypes.getIncludeRetired)).subscribe(
+        includeRetired => {
+          if(includeRetired != undefined) {
+            console.log('Include retired checked' + includeRetired);
+            this.includeRetired = includeRetired;
+            this.loadEncounterTypes();
           }
-          this.loadEncounterTypes();
         }
     );
+
+    this.store.pipe(select(fromEncTypes.getEncTypes)).subscribe(
+      encounterTypes => {
+          console.log('Update enc types');
+          this.encounterTypes = encounterTypes;
+        }
+      );
+
+    this.loadEncounterTypes();
   }
 
   confirmDialog(encounterType: EncounterType) {
@@ -66,7 +76,7 @@ export class EncounterTypesComponent implements OnInit {
 
   loadEncounterTypes() {
     this.service.getEncounterTypes(this.includeRetired)
-      .subscribe(encTypes => this.encounterTypes = encTypes);
+      .subscribe(encTypes => this.store.dispatch(new encTypeActions.Load(encTypes)));
   }
 
   search(phrase: string) {
@@ -90,7 +100,7 @@ export class EncounterTypesComponent implements OnInit {
 
   delete(encounterType: EncounterType) {
     this.service.delete(encounterType).subscribe(
-      _ => this.loadEncounterTypes()
+      response => this.loadEncounterTypes()
     );
   }
 
