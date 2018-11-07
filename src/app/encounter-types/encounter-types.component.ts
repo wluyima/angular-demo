@@ -34,7 +34,6 @@ export class EncounterTypesComponent implements OnInit {
     this.store.pipe(select(fromEncTypes.getIncludeRetired)).subscribe(
         includeRetired => {
           if(includeRetired != undefined) {
-            console.log('Include retired checked' + includeRetired);
             this.includeRetired = includeRetired;
             this.loadEncounterTypes();
           }
@@ -43,7 +42,6 @@ export class EncounterTypesComponent implements OnInit {
 
     this.store.pipe(select(fromEncTypes.getEncTypes)).subscribe(
       encounterTypes => {
-          console.log('Update enc types');
           this.encounterTypes = encounterTypes;
         }
       );
