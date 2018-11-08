@@ -11,11 +11,13 @@ import { EncounterTypesModule } from './encounter-types/encounter-types.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { EffectsModule } from '@ngrx/effects';
+import { PhoneBookModule } from './phone-book/phone-book.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent
+    AppComponent,
+    HomeComponent
   ],
   entryComponents: [ConfirmDialogComponent],
   imports: [
@@ -27,7 +29,8 @@ import { EffectsModule } from '@ngrx/effects';
       maxAge: 15,
       logOnly: environment.production
     }),
-    EncounterTypesModule
+    EncounterTypesModule,
+    PhoneBookModule
   ],
   providers: [
     [
