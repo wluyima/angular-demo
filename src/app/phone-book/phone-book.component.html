@@ -1,3 +1,25 @@
+<h3>{{ title }}</h3>
+
 <p>
-  phone-book works!
+  <button routerLink="edit/new">Add New Contact</button>
 </p>
+<table border="1" cellpadding="3">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Phone Number</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let contact of contacts">
+    <td>{{ contact.firstName }}</td>
+    <td>{{ contact.lastName }}</td>
+    <td>{{ contact.phoneNumber }}</td>
+    <td>
+      <a routerLink="/phonebook/edit/{{ contact.id }}" class="link" title="Edit">Edit</a>
+      &nbsp;
+      <a routerLink="/phonebook/view/{{ contact.id }}" class="link" title="View Details">View</a>
+      &nbsp;
+      <a (click)="deleteContact(contact)" class="link" title="Delete">Delete</a>
+    </td>
+  </tr>
+</table>

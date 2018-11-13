@@ -1,0 +1,32 @@
+<h3>{{ title }}</h3>
+
+<form #contactForm="ngForm" (submit)="saveContact()">
+  <div [formGroup]="names">
+    <p>
+     <input formControlName="firstName" placeholder="First Name" />
+    </p>
+    <span class="field-errors"
+      *ngIf="(names.get('firstName').dirty || names.get('firstName').touched) && names.get('firstName').invalid">
+      First Name is required
+    </span>
+    <p>
+      <input formControlName="lastName" placeholder="Last Name" required />
+    </p>
+    <span class="field-errors"
+      *ngIf="(names.get('lastName').dirty || names.get('lastName').touched) && names.get('lastName').invalid">
+      Last Name is required
+    </span>
+  </div>
+  <p>
+    <input [formControl]="phoneNumber" placeholder="Phone Number" required />
+  </p>
+  <span *ngIf="(phoneNumber.dirty || phoneNumber.touched) && phoneNumber.invalid" class="field-errors">
+    Phone Number is required
+  </span>
+  <br>
+  <br>
+  <input type="submit" value="Save" [disabled]="names.invalid || phoneNumber.invalid" />
+  &nbsp;&nbsp;
+  <button (click)="cancel()">Cancel</button>
+ </form>
+<br>

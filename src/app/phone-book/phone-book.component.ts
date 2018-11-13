@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from './contact';
+import { ContactService } from './contact.service';
 
 @Component({
   templateUrl: './phone-book.component.html',
@@ -6,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhoneBookComponent implements OnInit {
 
-  constructor() { }
+  title: string = 'Contacts';
+  contacts: Contact[];
+
+  constructor(private service: ContactService) { }
 
   ngOnInit() {
+    this.loadContacts();
+  }
+
+  loadContacts(): void {
+    this.service.getContacts().subscribe(
+      contacts => this.contacts = contacts
+    );
+  }
+
+  deleteContact(contact: Contact): void {
+    this.service.deleteContact(contact.id).subscribe(
+      () => this.loadContacts()
+    );
   }
 
 }

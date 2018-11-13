@@ -12,6 +12,10 @@ body {
   margin: 10px;
 }
 
+.link {
+  cursor: pointer; text-decoration: none;
+}
+
 .field-errors {
   color: #ff0000;
 }
