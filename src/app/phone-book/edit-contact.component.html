@@ -6,14 +6,14 @@
      <input formControlName="firstName" placeholder="First Name" />
     </p>
     <span class="field-errors"
-      *ngIf="(names.get('firstName').dirty || names.get('firstName').touched) && names.get('firstName').invalid">
+      *ngIf="(names.controls['firstName'].dirty || names.controls['firstName'].touched) && names.controls['firstName'].errors?.required">
       First Name is required
     </span>
     <p>
       <input formControlName="lastName" placeholder="Last Name" required />
     </p>
     <span class="field-errors"
-      *ngIf="(names.get('lastName').dirty || names.get('lastName').touched) && names.get('lastName').invalid">
+      *ngIf="(names.get('lastName').dirty || names.get('lastName').touched) && names.get('lastName').errors?.required">
       Last Name is required
     </span>
   </div>
@@ -25,7 +25,7 @@
   </span>
   <br>
   <br>
-  <input type="submit" value="Save" [disabled]="names.invalid || phoneNumber.invalid" />
+  <input type="submit" value="Save" [disabled]="names.invalid || phoneNumber.errors?.required" />
   &nbsp;&nbsp;
   <button (click)="cancel()">Cancel</button>
  </form>
