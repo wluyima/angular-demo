@@ -27,9 +27,9 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     let uuid = this.route.snapshot.paramMap.get('uuid');
-    if(uuid == 'new'){
+    if (uuid === 'new') {
       this.encounterType = new EncounterType();
-    } else{
+    } else {
       this.getEncounterType(uuid);
     }
   }
@@ -44,8 +44,8 @@ export class EditComponent implements OnInit {
     this.service.save(this.encounterType).subscribe(
       res => this.router.navigateByUrl('encounters'),
       error => {
-        //TODO use a dialog
-        alert('An error occurred: '+error.statusText)
+        // TODO use a dialog
+        alert('An error occurred: ' + error.statusText);
       }
     );
   }

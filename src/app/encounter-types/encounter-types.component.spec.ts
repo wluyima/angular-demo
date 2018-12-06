@@ -3,7 +3,7 @@ import { EncounterTypesComponent } from './encounter-types.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '../shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { AppModule } from "../app.module";
+import { AppModule } from '../app.module';
 
 describe('EncounterTypesComponent', () => {
   let component: EncounterTypesComponent;

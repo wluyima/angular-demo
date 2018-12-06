@@ -18,18 +18,18 @@ export class ContactService {
 
   saveContact(contact: Contact): Observable<Contact> {
     let url = BASE_URL;
-    if(contact.id){
-      url+='/'+contact.id;
+    if (contact.id) {
+      url += '/' + contact.id;
     }
     return this.httpClient.post<Contact>(url, contact);
   }
 
   getContactById(id: number): Observable<Contact> {
-    return this.httpClient.get<Contact>(BASE_URL+'/'+id);
+    return this.httpClient.get<Contact>(BASE_URL + '/' + id);
   }
 
   deleteContact(id: number): Observable<any> {
-    return this.httpClient.delete<any>(BASE_URL+'/'+id);
+    return this.httpClient.delete<any>(BASE_URL + '/' + id);
   }
 
 }

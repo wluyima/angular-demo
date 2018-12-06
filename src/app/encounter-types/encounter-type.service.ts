@@ -19,10 +19,9 @@ export class EncounterTypeService {
     let httpOptions = {
       params: {'v': 'default'}
     };
-    if(includeRetired){
+    if (includeRetired) {
       httpOptions.params['includeAll'] = includeRetired;
     }
-    
     return this.http.get<EncounterType[]>(BASE_URL, httpOptions)
       .pipe(
         map(response => response['results'])
@@ -30,17 +29,16 @@ export class EncounterTypeService {
   }
 
   getEncounterType(uuid: string): Observable<EncounterType> {
-    return this.http.get<EncounterType>(BASE_URL+'/'+uuid);
+    return this.http.get<EncounterType>(BASE_URL + '/' + uuid);
   }
 
   search(phrase: string): Observable<EncounterType[]> {
     let httpOptions = {
       params: {'v': 'default'}
     };
-    if(phrase.trim()){
+    if (phrase.trim()) {
       httpOptions.params['q'] = phrase;
     }
-    
     return this.http.get<EncounterType[]>(BASE_URL, httpOptions)
       .pipe(
         map(response => response['results'])
@@ -49,17 +47,16 @@ export class EncounterTypeService {
 
   save(encounterType: EncounterType): Observable<EncounterType> {
     let url = BASE_URL;
-    if(encounterType.uuid){
-      url+='/'+encounterType.uuid;
+    if (encounterType.uuid) {
+      url += '/' + encounterType.uuid;
     }
-    
     return this.http.post<EncounterType>(url, encounterType);
   }
 
   delete(encounterType: EncounterType) {
     let url = BASE_URL;
-    if(encounterType.uuid){
-      url+='/'+encounterType.uuid;
+    if (encounterType.uuid) {
+      url += '/' + encounterType.uuid;
     }
 
     return this.http.delete<EncounterType>(url, {params: {'purge': 'true'}});

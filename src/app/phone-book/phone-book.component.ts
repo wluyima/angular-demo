@@ -8,7 +8,7 @@ import { ContactService } from './contact.service';
 })
 export class PhoneBookComponent implements OnInit {
 
-  title: string = 'Contacts';
+  title = 'Contacts';
   contacts: Contact[];
 
   constructor(private service: ContactService) { }

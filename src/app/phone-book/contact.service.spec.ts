@@ -1,9 +1,17 @@
 import { TestBed } from '@angular/core/testing';
+import { ContactService } from './contact.service';
+import { SharedModule } from '../shared/shared.module';
+import { AppModule } from '../app.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { ContactService } from './phone-book.service';
-
-describe('PhoneBookService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe('ContactService', () => {
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [
+      AppModule,
+      SharedModule,
+      RouterTestingModule
+    ]
+  }));
 
   it('should be created', () => {
     const service: ContactService = TestBed.get(ContactService);

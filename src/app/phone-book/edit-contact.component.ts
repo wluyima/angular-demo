@@ -23,11 +23,11 @@ export class EditContactComponent implements OnInit {
     private service: ContactService,
     private router: Router,
     private route: ActivatedRoute
-    ){}
+    ) {}
 
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
-    if(id === 'new'){
+    if (id === 'new') {
       this.contact = new Contact();
       this.title =  'Add New Contact';
     } else {
@@ -60,5 +60,4 @@ export class EditContactComponent implements OnInit {
     this.router.navigateByUrl('phonebook');
   }
 
-  
 }

@@ -4,7 +4,7 @@ import { EncounterType } from '../encounter-type';
 
 export interface EncounterTypeState {
   includeRetired: boolean;
-  encTypes: EncounterType[]
+  encTypes: EncounterType[];
 }
 
 const getEncounterTypesFeatureState = createFeatureSelector<EncounterTypeState>('encounterTypes');

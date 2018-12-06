@@ -34,7 +34,7 @@ import { PhoneBookModule } from './phone-book/phone-book.module';
   ],
   providers: [
     [
-      { 
+      {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
         multi: true

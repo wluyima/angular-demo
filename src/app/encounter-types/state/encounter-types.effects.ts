@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from "@ngrx/effects";
-import { EncounterTypeService } from "../encounter-type.service";
-import { map, switchMap, withLatestFrom } from "rxjs/operators";
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { EncounterTypeService } from '../encounter-type.service';
+import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 import * as encTypeActions from './encounter-types.actions';
 import * as fromEncTypes from './encounter-types.reducer';
 import { EncounterTypeActionType } from './encounter-types.actions';

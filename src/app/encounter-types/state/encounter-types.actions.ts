@@ -10,7 +10,7 @@ export enum EncounterTypeActionType {
 export class ToggleRetired implements Action {
   readonly type = EncounterTypeActionType.ToggleRetired;
 
-  constructor(public payload: boolean){
+  constructor(public payload: boolean) {
   }
 }
 
@@ -21,7 +21,7 @@ export class Load implements Action {
 export class LoadSuccess implements Action {
   readonly type = EncounterTypeActionType.LoadSuccess;
 
-  constructor(public payload: EncounterType[]){
+  constructor(public payload: EncounterType[]) {
   }
 }
 
