@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PhoneBookComponent } from './phone-book.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from '../shared/shared.module';
 import { AppModule } from '../app.module';
 
 describe('PhoneBookListComponent', () => {
@@ -11,7 +10,7 @@ describe('PhoneBookListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule, AppModule, RouterTestingModule]
+      imports: [AppModule, RouterTestingModule]
     })
     .compileComponents();
   }));

@@ -1,8 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { EncounterTypesComponent } from './encounter-types.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from '../shared/shared.module';
-import { StoreModule } from '@ngrx/store';
 import { AppModule } from '../app.module';
 
 describe('EncounterTypesComponent', () => {
@@ -13,9 +11,7 @@ describe('EncounterTypesComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         AppModule,
-        SharedModule,
-        RouterTestingModule,
-        StoreModule.forRoot({})
+        RouterTestingModule
       ]
     })
     .compileComponents();
