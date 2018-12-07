@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Contact } from './contact';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
-const BASE_URL = 'http://localhost:8081/api/person';
+export const BASE_URL = 'http://' + environment.apiPort + ':' + environment.apiHost + '/api/person';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,10 @@ export class ContactService {
 
   deleteContact(id: number): Observable<any> {
     return this.httpClient.delete<any>(BASE_URL + '/' + id);
+  }
+
+  multiply(number1: number, number2: number): number {
+    return number1 * number2;
   }
 
 }
